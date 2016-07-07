@@ -1,0 +1,15 @@
+---
+- hosts: local
+  tasks:
+    - include: tasks/ansible-setup.yml
+    - include: tasks/preferences.yml
+
+  roles:
+    - homebrew
+    - dotfiles
+  #   # - common
+  #   # - vim
+  #   # - python
+  #   # - ruby
+  #   # - node
+  #   # - dev

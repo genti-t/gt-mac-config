@@ -1,0 +1,66 @@
+---
+configure_sudoers: yes
+downloads: ~/Downloads/ansible-downloads
+homebrew_installed_packages:
+  - ssh-copy-id
+  - ansible
+  - autoconf
+  - bash-completion
+  - docker
+  - gettext
+  - git
+  - go
+  - gpg
+  - hub
+  - curl
+  - iperf
+  - libdvdcss
+  - libevent
+  - python
+  - mysql
+  - nvm
+  - ssh-copy-id
+  - cowsay
+  - ios-sim
+  - readline
+  - kdiff3
+  - openssl
+  - pv
+  - wget
+  - wrk
+  - brew-cask
+homebrew_upgrade_all_packages: yes
+homebrew_taps:
+  - caskroom/cask
+  - homebrew/binary
+  - homebrew/dupes
+  - homebrew/versions
+homebrew_cask_appdir: /Applications
+homebrew_cask_apps:
+  - atom
+  - alfred
+  - evernote
+  - google-chrome
+  - dropbox
+  - fing
+  - firefox
+  - iterm2
+  # - handbrake
+  # - karabiner
+  - licecap
+  - macvim
+  - mou
+  - nvalt
+  - sequel-pro
+  - skype
+  - skitch
+  - packer
+  - terraform
+  - timemachineeditor
+  - transmission
+  - vagrant
+  - vagrant-manager
+  - vlc
+  - virtualbox
+  # - MacX YouTube Downloader
+  # - Vodafone Mobile Broadband
