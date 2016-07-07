@@ -1,5 +1,5 @@
 ---
-dotfiles_sourcedir: "./files/dotfiles"
+dotfiles_source_dir: "files/dotfiles"
 dotfiles_home: "~"
 dotfiles_files:
   - .bash_profile
