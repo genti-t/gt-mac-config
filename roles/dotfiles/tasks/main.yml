@@ -4,6 +4,7 @@
   copy: src=./files/{{ item }} dest=~ mode=755
   with_items:
     - .bash_profile
+    - .bashrc
     - .gitignore
     - .vimrc
 - name: Configure GIT
