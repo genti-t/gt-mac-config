@@ -1,12 +1,9 @@
-#
+
 # .bash_profile
 #
-# @author Jeff Geerling
-# @see .inputrc
-#
+# @author Genti Topija
 
 # Nicer prompt.
-export PS1=" \D{%I:%M %p}:\w $ "
 
 # Use colors.
 export CLICOLOR=1
@@ -30,27 +27,12 @@ then
   source ~/.bashrc
 fi
 
-# Route local traffic over ethernet when using certain WiFi networks w/o proxy.
-function route_add() {
-  sudo route add -net 10.0.0.0/8 -interface en0
-}
-
-# Delete the route added above.
-function route_delete() {
-  sudo route delete 10.0.0.0
-}
-
-# Route IRC traffic through one of my servers.
-# Use SOCKS5 settings 'localhost' and 6667 for server/port.
-function irc_proxy() {
-  ssh -vD 6667 geerlingguy@atl1.servercheck.in
-}
-
 # Syntax-highlight code for copying and pasting.
 # Requires highlight (`brew install highlight`).
 function pretty() {
   pbpaste | highlight --syntax=$1 -O rtf | pbcopy
 }
+
 
 # Git aliases.
 alias gs='git status'
@@ -67,14 +49,19 @@ if [ -f $brew_prefix/etc/bash_completion ]; then
   . $brew_prefix/etc/bash_completion
 fi
 
-# Use brew-installed PHP binaries.
-export PATH="$brew_prefix/opt/php56/bin:$PATH"
+if [ -f $brew_prefix/etc/bash_completion.d/git-completion.bash ]; then
+  . $brew_prefix/etc/bash_completion.d/git-completion.bash
+fi
+
+if [ -f $brew_prefix/etc/bash_completion.d/git-prompt.sh ]; then
+  . $brew_prefix/etc/bash_completion.d/git-prompt.sh
+fi
 
 # Vagrant configuration.
-# export VAGRANT_DEFAULT_PROVIDER='virtualbox'
+export VAGRANT_DEFAULT_PROVIDER='virtualbox'
 
 # Disable cowsay in Ansible.
-export ANSIBLE_NOCOWS=1
+export ANSIBLE_NOCOWS=0
 
 # Delete a given line number in the known_hosts file.
 knownrm() {
@@ -85,20 +72,3 @@ knownrm() {
     sed -i '' "$1d" ~/.ssh/known_hosts
   fi
 }
-
-# Ask for confirmation when 'prod' is in a command string.
-prod_command_trap () {
-  if [[ $BASH_COMMAND == *prod* ]]
-  then
-    read -p "Are you sure you want to run this command on prod [Y/n]? " -n 1 -r
-    if [[ $REPLY =~ ^[Yy]$ ]]
-    then
-      echo -e "\nRunning command \"$BASH_COMMAND\" \n"
-    else
-      echo -e "\nCommand was not run.\n"
-      return 1
-    fi
-  fi
-}
-shopt -s extdebug
-trap prod_command_trap DEBUG

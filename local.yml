@@ -12,4 +12,4 @@
   roles:
     - homebrew
     - osx_config
-    # - dotfiles
+    - dotfiles
