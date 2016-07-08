@@ -1,16 +1,15 @@
 ---
 - hosts: local
   tasks:
-    # - name: Ansible Setup
-    #   include: tasks/ansible-setup.yml
     - name: Set Preferences
       include: tasks/preferences.yml
     - name: Configure Dock
       include: tasks/dock.yml
-    - name: OS X Setup
-      script: scripts/setup_osx
 
-
+- hosts: local
+  become: yes
+  become_method: sudo
   roles:
     - homebrew
-    - dotfiles
+    - osx_config
+    # - dotfiles
