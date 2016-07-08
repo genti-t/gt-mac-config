@@ -1,0 +1,27 @@
+---
+# defaults file for osx_config
+menu_bar_transparency: false
+show_remaining_battery: true
+highlight_color_green: true
+expand_save_panel: true
+expand_print_panel: true
+save_new_documents_on_cloud: false
+lsquarantine: false
+reveal_info_on_login: true
+software_update_frequency: 1
+auto_reboot_on_freez: true
+fast_keyboard: true
+auto_correct: false
+screenshot_directory: ~/Pictures/screenshot
+screenshot_format: png
+show_hidden_files: false
+show_files_extensions: true
+show_posix_path_in_finder_title: true
+extension_change_warning: false
+open_finder_volume_on_mount: true
+warn_on_empty_trash: false
+empty_trash_securely: true
+dock_tile_size: 50
+dock_largesize_size: 60
+autohide_dock: true
+group_windows_by_application: false     # flase i.e. use the old Exposé behavior instead
