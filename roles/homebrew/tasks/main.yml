@@ -73,6 +73,7 @@
   always_run: yes
   changed_when: false
   become: yes
+  become_method: sudo
 
 # Use command module instead of homebrew_cask so appdir can be used.
 - name: Install configured cask applications.
