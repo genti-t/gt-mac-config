@@ -72,3 +72,4 @@ knownrm() {
     sed -i '' "$1d" ~/.ssh/known_hosts
   fi
 }
+export DOCKER_HOST=tcp://127.0.0.1:2375
