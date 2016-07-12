@@ -1,0 +1,18 @@
+"*":
+  core:
+    openEmptyEditorOnStart: false
+    themes: [
+      "one-dark-ui"
+      "chester-atom-syntax"
+    ]
+  editor:
+    fontSize: 12
+    invisibles: {}
+  "exception-reporting":
+    userId: "91155993-d714-fb3c-96f3-9388bdf752b8"
+  "one-dark-ui":
+    fontSize: 9
+    layoutMode: "Compact"
+  "tree-view": {}
+  welcome:
+    showOnStartup: false

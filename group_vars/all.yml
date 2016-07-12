@@ -44,6 +44,7 @@ homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
   - atom
   - alfred
+  - 1password
   - evernote
   - google-chrome
   - dropbox

@@ -7,6 +7,38 @@
     - .bashrc
     - .gitignore
     - .vimrc
+- name: Create vim color  directory
+  become: no
+  file: path=~/.vim/colors state=directory
+
+- name: Copy vim color
+  become: no
+  copy: src=./files/{{ item }} dest=~/.vim/colors mode=755
+  with_items:
+    - cobalt.vim
+
+- name: Copy iTerm Profile
+  become: no
+  copy: src=./files/iTerm/com.googlecode.iterm2.plist dest=~/Library/Preferences
+
+- name: Reload iTerm Profile
+  become: no
+  command: defaults read -app iTerm
+
+- name: Copy atom profile
+  become: no
+  synchronize: src=./files/atom/ dest=~/.atom recursive=yes
+#
+#
+#
+# # ATOM
+# rsync -rav Users/genti/.atom/config.cson ~/.atom/
+# rsync -rav Users/genti/.atom/styles.less  ~/.atom/
+# rsync -rav Users/genti/.atom/packages  ~/.atom/
+#
+
+
+
 - name: Configure GIT
   become: no
   template: src=.gitconfig.j2 dest=~/.gitconfig mode=755
