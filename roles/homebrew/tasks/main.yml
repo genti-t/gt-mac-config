@@ -60,6 +60,8 @@
 - name: Ensure configured homebrew packages are installed.
   homebrew: "name={{ item }} state=present"
   with_items: "{{ homebrew_installed_packages }}"
+  become: yes
+  become_method: sudo
 
 - name: Upgrade all homebrew packages (if configured).
   homebrew: update_homebrew=yes upgrade_all=yes
@@ -72,8 +74,6 @@
   register: homebrew_cask_list
   always_run: yes
   changed_when: false
-  become: yes
-  become_method: sudo
 
 # Use command module instead of homebrew_cask so appdir can be used.
 - name: Install configured cask applications.
