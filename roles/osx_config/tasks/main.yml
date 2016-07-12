@@ -27,6 +27,8 @@
   command: defaults write com.apple.LaunchServices LSQuarantine -bool "{{ lsquarantine }}"
 
 - name: Reveal IP address, hostname, OS version, when clicking the clock in loginwindow
+  become: yes
+  become_method: sudo
   command: defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
   when: "{{ reveal_info_on_login }}"
 
@@ -115,14 +117,20 @@
   command: defaults write com.apple.dock expose-group-by-app -bool "{{ group_windows_by_application }}"
 
 - name: Disable local Time Machine backups - hash tmutil
+  become: yes
+  become_method: sudo
   command: hash tmutil
 - name: Disable local Time Machine backups - tmutil disablelocal
+  become: yes
+  become_method: sudo
   command: tmutil disablelocal
 
 - name: Allow text selection in the Quick Look window
   command: defaults write com.apple.finder QLEnableTextSelection -bool true
 
 - name: Disable the sudden motion sensor as not useful for SSDs
+  become: yes
+  become_method: sudo
   command: pmset -a sms 0
 
 - name: Disable the crash reporter

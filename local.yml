@@ -1,7 +1,5 @@
 ---
 - hosts: local
-  become: yes
-  become_method: sudo
   roles:
     - homebrew
     - osx_config
