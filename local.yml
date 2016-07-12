@@ -1,15 +1,15 @@
 ---
 - hosts: local
-  tasks:
-    - name: Set Preferences
-      include: tasks/preferences.yml
-    - name: Configure Dock
-      include: tasks/dock.yml
-
-- hosts: local
   become: yes
   become_method: sudo
   roles:
     - homebrew
     - osx_config
     - dotfiles
+
+- hosts: local
+  tasks:
+    - name: Set Preferences
+      include: tasks/preferences.yml
+    - name: Configure Dock
+      include: tasks/dock.yml

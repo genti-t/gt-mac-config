@@ -52,7 +52,6 @@ homebrew_cask_apps:
   - firefox
   - iterm2
   - licecap
-  - little-snitch
   - macvim
   - mou
   - nvalt
