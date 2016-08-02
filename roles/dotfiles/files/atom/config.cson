@@ -13,6 +13,7 @@
   "one-dark-ui":
     fontSize: 9
     layoutMode: "Compact"
-  "tree-view": {}
+  "tree-view":
+    hideVcsIgnoredFiles: false
   welcome:
     showOnStartup: false
