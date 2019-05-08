@@ -26,12 +26,6 @@
 - name: Disable the - Are you sure you want to open this application - dialog
   command: defaults write com.apple.LaunchServices LSQuarantine -bool "{{ lsquarantine }}"
 
-- name: Reveal IP address, hostname, OS version, when clicking the clock in loginwindow
-  become: yes
-  become_method: sudo
-  command: defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
-  when: "{{ reveal_info_on_login }}"
-
 - name: Check for software updates daily, not just once per week
   command: defaults write com.apple.SoftwareUpdate ScheduleFrequency -int "{{ software_update_frequency }}"
 
@@ -47,7 +41,7 @@
   command: defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool "{{ auto_correct }}"
 
 - name: Create screenshot directory
-  file: path=/src/www"{{ screenshot_directory }}" state=directory
+  file: path="{{ screenshot_directory }}" state=directory
 
 - name: Save screenshots directory
   command: defaults write com.apple.screencapture location -string "{{ screenshot_directory }}"
@@ -112,18 +106,6 @@
 
 - name: Speed up Mission Control animations
   command: defaults write com.apple.dock expose-animation-duration -float 0.1
-
-- name: Set group windows by application in Mission Control
-  command: defaults write com.apple.dock expose-group-by-app -bool "{{ group_windows_by_application }}"
-
-- name: Disable local Time Machine backups - hash tmutil
-  become: yes
-  become_method: sudo
-  command: hash tmutil
-- name: Disable local Time Machine backups - tmutil disablelocal
-  become: yes
-  become_method: sudo
-  command: tmutil disablelocal
 
 - name: Allow text selection in the Quick Look window
   command: defaults write com.apple.finder QLEnableTextSelection -bool true

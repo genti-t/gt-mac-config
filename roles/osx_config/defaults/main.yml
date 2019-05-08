@@ -24,4 +24,4 @@ empty_trash_securely: true
 dock_tile_size: 50
 dock_largesize_size: 60
 autohide_dock: true
-group_windows_by_application: false     # flase i.e. use the old Exposé behavior instead
+group_windows_by_application: false     # false i.e. use the old Exposé behavior instead
