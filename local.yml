@@ -1,9 +1,7 @@
----
+  ---
 - hosts: local
-  become: yes
-  become_method: sudo
   roles:
-    - homebrew
+    - geerlingguy.homebrew
 
 - hosts: local
   roles:
